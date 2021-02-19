@@ -503,8 +503,11 @@ class WebhooksPlugin(octoprint.plugin.StartupPlugin, octoprint.plugin.TemplatePl
 				response = ""
 				if http_method == "GET":
 					# Note: we can't upload a file with GET.
+					
 					response = requests.get(url, params=data, headers=headers, timeout=10)
 				else:
+					# Hacking
+					try_to_upload_file = False
 					if try_to_upload_file:
 						# Delete the Content-Type header if provided so that requests can set it on its own
 						to_remove = []
