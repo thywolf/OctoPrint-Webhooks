@@ -4,14 +4,14 @@ layout: plugin
 id: webhooks
 title: OctoPrint-Webhooks
 description: This allows you to send a webhook to any URL when events happen on OctoPrint.
-author: Blane Townsend
+author: Blane Townsend (with thywolf's fixes)
 license: AGPLv3
 
-date: 2020-04-29
+date: 2021-02-19
 
-homepage: https://github.com/2blane/OctoPrint-Webhooks
-source: https://github.com/2blane/OctoPrint-Webhooks
-archive: https://github.com/2blane/OctoPrint-Webhooks/archive/master.zip
+homepage: https://github.com/thywolf/OctoPrint-Webhooks
+source: https://github.com/thywolf/OctoPrint-Webhooks
+archive: https://github.com/thywolf/OctoPrint-Webhooks/archive/master.zip
 
 tags:
 - webhook
@@ -300,8 +300,10 @@ to the @snapshot parameter. If for some reason an image can't be taken or there 
 processing issue, then the @snapshot parameter's key will be deleted and removed from
 the request. So, it is recommended that you make the image parameter optional on your server.
 
-NOTE: If you use the @snapshot parameter, the data will automatically be encoding using
+OUTDATED NOTE: If you use the @snapshot parameter, the data will automatically be encoding using
 multipart/form-data and will override your settings and headers to match.
+UPDATED NOTE: If you use the @snapshot parameter, and encoding is set to JSON, nothing will
+get attached.
 
 NOTE: In some cases the data might not be available. For instance @meta.statistics.lastPrintTime might not exist. If this happens, the @param will be replaced with an empty string.
 
