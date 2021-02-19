@@ -21,7 +21,7 @@ plugin_version = "3.0.3t"
 plugin_description = """When certain events occur, a custom webhook will be sent to anywhere you want!"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Blane Townsend (with thywolf's fix)"
+plugin_author = "Blane Townsend (with thywolf's fixes)"
 
 # The plugin's author's mail address.
 plugin_author_email = "blane.townsend@gmail.com"
