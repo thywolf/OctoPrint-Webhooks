@@ -505,9 +505,15 @@ class WebhooksPlugin(octoprint.plugin.StartupPlugin, octoprint.plugin.TemplatePl
 					# Note: we can't upload a file with GET.
 					
 					response = requests.get(url, params=data, headers=headers, timeout=10)
+				elif content_type == "JSON":
+					# Note: we can't upload a file with JSON either.
+					# Make sure the Content-Type header is set to application/json
+					headers = check_for_header(headers, "content-type", "application/json")
+					self._logger.info("headers: " + json.dumps(headers))
+					self._logger.info("data: " + json.dumps(data))
+					self._logger.info("http_method: " + http_method + " - content_type: " + content_type)
+					response = requests.request(http_method, url, json=data, headers=headers, timeout=30)
 				else:
-					# Hacking
-					try_to_upload_file = False
 					if try_to_upload_file:
 						# Delete the Content-Type header if provided so that requests can set it on its own
 						to_remove = []
@@ -527,13 +533,6 @@ class WebhooksPlugin(octoprint.plugin.StartupPlugin, octoprint.plugin.TemplatePl
 						}
 						# No timeout when uploading file as this could take some time.
 						response = requests.request(http_method, url, files=files, data=data, headers=headers)
-					elif content_type == "JSON":
-						# Make sure the Content-Type header is set to application/json
-						headers = check_for_header(headers, "content-type", "application/json")
-						self._logger.info("headers: " + json.dumps(headers))
-						self._logger.info("data: " + json.dumps(data))
-						self._logger.info("http_method: " + http_method + " - content_type: " + content_type)
-						response = requests.request(http_method, url, json=data, headers=headers, timeout=30)
 					else:
 						# Make sure the Content-Type header is set to application/x-www-form-urlencoded
 						headers = check_for_header(headers, "content-type", "application/x-www-form-urlencoded")
