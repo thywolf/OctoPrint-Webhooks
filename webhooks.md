@@ -48,7 +48,7 @@ I wrote a blog post to explain more about what this plugin is and why I built it
 Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
 or manually using this URL:
 
-    https://github.com/2blane/OctoPrint-Webhooks/archive/master.zip
+    https://github.com/thywolf/OctoPrint-Webhooks/archive/master.zip
 
 Once you've installed the plugin, go to the settings page for this plugin. The page is called "Webhooks".
 Select which events will trigger a webhook, then change the following:
