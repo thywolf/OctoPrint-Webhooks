@@ -148,7 +148,7 @@ class WebhooksPlugin(octoprint.plugin.StartupPlugin, octoprint.plugin.TemplatePl
 				current=self._plugin_version,
 				user="2blane",
 				repo="OctoPrint-Webhooks",
-				pip="https://github.com/2blane/OctoPrint-Webhooks/archive/{target}.zip"
+				pip="https://github.com/thywolf/OctoPrint-Webhooks/archive/{target}.zip"
 			)
 		)
 
